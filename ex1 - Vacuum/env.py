@@ -98,7 +98,7 @@ class Env:
         agent_data = self.state.agent_list[self.state.get_agent_index(agent)]
         return {
             "map": self.state.map_array,
-            "agent_loc": self.state.map_array,
+            "agent_loc": agent_data["agent_loc"],
             "score": agent_data["agent_score"],
             "cost": agent_data["agent_cost"],
                 }
