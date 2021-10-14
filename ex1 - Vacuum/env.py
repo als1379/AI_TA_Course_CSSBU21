@@ -49,7 +49,7 @@ class State:
         if action=="suck": return "nothing to clean"
 
         delta_i, delta_j = {"up": (-1,0), "down": (+1,0), "right": (0,+1), "left": (0,-1)}[action]
-        new_i,new_j=max(0,min(len(self.map_array)-1, i+delta_i)), max(0,min(len(self.map_array[0])-1, j+delta_j))
+        new_i, new_j=max(0,min(len(self.map_array)-1, i+delta_i)), max(0,min(len(self.map_array[0])-1, j+delta_j))
 
         with_agent_collision = [idx for idx, ad in enumerate(self.agent_list) if ad["agent_loc"]==(new_i,new_j)]
         if len(with_agent_collision)!=0 and with_agent_collision[0] != agent_idx: with_agent_collision=True
