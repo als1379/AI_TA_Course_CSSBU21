@@ -1,13 +1,24 @@
 from env import Env
 from ai import Agent
 from gui import cli_ui
+from random import randint
 
 
 if __name__ == "__main__":
-    initial_Map = [[-1,0,-1],
-                   [1,0,1]]
-    initial_Map = [[-1,0,-1],
-                   [1,0,1]]
+    initial_Map = [
+        [
+            [-1,0,-1],
+            [1,0,1]
+        ],
+
+        [
+            [1,0,0,0],
+            [0,0,1,0],
+            [0,0,-1,0],
+            [0,-1,1,0]
+        ],
+         ][randint(0,1)]
+
     sim = Env(initial_Map)
     agent1 = sim.add_agent(agent_class=Agent)
     gui = cli_ui()
@@ -26,6 +37,6 @@ if __name__ == "__main__":
 
     print(
         "\n\nпобеда!!!",
-        "\nyour cost (should be low):", sim.perceive(agent1)["cost"],
+        "\nyour cost (number of valid actions):", sim.perceive(agent1)["cost"],
         "\nyour score (number of cleared tiles):", sim.perceive(agent1)["score"]
     )
